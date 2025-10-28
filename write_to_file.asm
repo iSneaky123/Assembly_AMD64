@@ -39,7 +39,7 @@ _start:
 	mov rbx, rax; rax contains file descriptor, or error code in case of negative
 
 	;    check if any error
-	test rbx, 0
+	test rbx, rbx
 	js   error
 
 	;   Writing Content into file
