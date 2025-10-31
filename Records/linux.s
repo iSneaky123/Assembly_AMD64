@@ -22,9 +22,9 @@
 .equ APPEND, 1024
 
 # Common File Permissions
-.equ ORW, 0600
-.equ AR_ORW, 0644
-.equ ARX_ORWX, 755
+.equ URW, 0600
+.equ AR_URW, 0644
+.equ ARX_URWX, 755
 
 # Common Status Code
 .equ END_OF_FILE, 0
