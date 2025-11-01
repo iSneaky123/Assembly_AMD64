@@ -72,26 +72,26 @@ _start:
 	movq $AR_URW, %r10
 	syscall
 
-# Pass File output file descriptor to input for writring records
-movq %rax, %rdi
+    # Pass File output file descriptor to input for writring records
+    movq %rax, %rdi
 
-# Write Record1
-movq $record1, %rsi
-call write_record
+    # Write Record1
+    movq $record1, %rsi
+    call write_record
 
-# Write Record2
-movq $record2, %rsi
-call write_record
+    # Write Record2
+    movq $record2, %rsi
+    call write_record
 
-# Write Record3
-movq $record3, %rsi
-call write_record
+    # Write Record3
+    movq $record3, %rsi
+    call write_record
 
-# Close file
-movq $SYS_CLOSE, %rax
-syscall
+    # Close file
+    movq $SYS_CLOSE, %rax
+    syscall
 
-# Exit
-movq $SYS_EXIT, %rax
-movq $0, %rdi
-syscall
+    # Exit
+    movq $SYS_EXIT, %rax
+    movq $0, %rdi
+    syscall
