@@ -18,7 +18,7 @@
 .equ WRITE_ONLY, 1
 .equ READ_WRITE, 2
 .equ CREATE, 64
-.equ TUNCATE, 512
+.equ TRUNCATE, 512
 .equ APPEND, 1024
 
 # Common File Permissions
