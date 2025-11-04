@@ -4,7 +4,6 @@
 #
 # Output: Returns the count in rax
 #
-# Process:
 # Registers Used:
 # rax - current position
 # rdi -  address (input)
