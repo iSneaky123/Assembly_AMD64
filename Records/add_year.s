@@ -2,8 +2,12 @@
 .include "record_def.s"
 
 .section .data
-    input_file_name: .ascii "test.dat\0"
+    input_file_name: .ascii "teswt.dat\0"
     output_file_name: .ascii "testout.dat\0"
+
+    no_open_file_code: .ascii "0001: \0"
+    no_open_file_msg: .ascii "Can't Open Input File.\0"
+
 
 .section .bss
     .lcomm record_buffer, RECORD_SIZE
@@ -26,6 +30,10 @@ _start:
     movq $READ_ONLY, %rdx
     movq $0, %r10
     syscall
+
+    # when os returns fd value less than 0, it means error
+    cmpq $0, %rax
+    jl file_error
 
     # Store input file descriptor
     movq %rax, FD_IN(%rbp)
@@ -68,3 +76,7 @@ loop_end:
     movq $0, %rbx
     syscall
 
+file_error:
+    movq $no_open_file_code, %rdi
+    movq $no_open_file_msg, %rsi
+    call error_exit
